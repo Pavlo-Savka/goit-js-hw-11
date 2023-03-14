@@ -1,2 +1,108 @@
-@import './common';
-@import './example';
+body {
+    background: #E0EAFC;
+    background: linear-gradient(to right, #CFDEF3, #E0EAFC);
+}
+.headline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #373B44;
+    background: linear-gradient(to right, #4286f4, #373B44);
+    box-shadow: 0px 10px 27px 0px rgba(0, 0, 0, 0.67);
+}
+.search-form {
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin: 20 auto;
+    
+    
+}
+.search-button {
+    position: relative;
+    transform: translateX(358%);
+    border-width: 0;
+    height: 22px;
+    padding: 1px;
+    border-radius: 5px;
+   
+}
+.search-input {
+    position: absolute;
+    border-radius: 5px;
+    border-width: 0;
+    height: 20px;
+}
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 62px;
+    padding: 10px 0;
+}
+.load-more {
+    display: none;
+    margin: auto;
+    background-color: #0095ff;
+            border: 1px solid transparent;
+            border-radius: 3px;
+            box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+            box-sizing: border-box;
+            color: #fff;
+            cursor: pointer;
+            font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans", sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+            line-height: 1.15385;
+            outline: none;
+            padding: 8px .8em;
+            position: relative;
+            text-align: center;
+            text-decoration: none;
+            user-select: none;
+            vertical-align: baseline;
+            white-space: nowrap;
+        }
+    
+        .load-more:hover,
+        .load-more:focus {
+            background-color: #07c;
+        }
+    
+        .load-more:focus {
+            box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+        }
+    
+        .load-more:active {
+            background-color: #0064bd;
+            box-shadow: none;
+        }
+.info-item {
+    margin: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12;
+
+}
+.photo-card-wrapper {
+    width: 100%;
+    max-height: 150px;
+    overflow: hidden;
+}
+.photo-card {
+    width: calc((100% - 30px)/4);
+    box-shadow: 0px 6px 11px 0px rgba(0, 0, 0, 0.6);
+
+}
+.photo-card-img {
+width: 100%;
+
+}
