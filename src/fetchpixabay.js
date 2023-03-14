@@ -4,7 +4,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 async function fetchpixabay(request, page) {
   const KEY = '34328101-794589af804430f41127b6154';
   const URL = `https://pixabay.com/api/`;
-  options = {
+  const options = {
     params: {
       key: `${KEY}`,
       q: `=${request}`,
