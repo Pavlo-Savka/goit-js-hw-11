@@ -1,5 +1,7 @@
 import PICTURE from './fetchpixabay';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const galleryCard = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('.load-more');
@@ -12,9 +14,15 @@ loadMoreBtn.addEventListener('click', loadMoreImg);
 
 function handleSubmit(event) {
   event.preventDefault();
-  galleryCard.innerHTML = '';
-  page = 1;
-  PICTURE.fetchpixabay(searchForm.searchQuery.value, page).then(renderGallery);
+  if (!searchForm.searchQuery.value) {
+    return;
+  } else {
+    galleryCard.innerHTML = '';
+    page = 1;
+    PICTURE.fetchpixabay(searchForm.searchQuery.value, page).then(
+      renderGallery
+    );
+  }
 }
 
 function renderCard(data) {
@@ -67,10 +75,10 @@ function renderGallery(data) {
 function loadMoreImg() {
   page += 1;
   PICTURE.fetchpixabay(searchForm.searchQuery.value, page).then(renderGallery);
+  refresh();
 }
 
 function noMoreImg() {
-  console.log(total);
   if (page * 40 < total) loadMoreBtn.style.display = 'block';
   else {
     loadMoreBtn.style.display = 'none';
@@ -78,3 +86,6 @@ function noMoreImg() {
       Notify.info("We're sorry, but you've reached the end of search results.");
   }
 }
+new SimpleLightbox('.photo-card a', {
+  captionDelay: 250,
+});
