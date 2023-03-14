@@ -1,7 +1,5 @@
 import PICTURE from './fetchpixabay';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const galleryCard = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('.load-more');
@@ -86,6 +84,3 @@ function noMoreImg() {
       Notify.info("We're sorry, but you've reached the end of search results.");
   }
 }
-new SimpleLightbox('.photo-card a', {
-  captionDelay: 250,
-});
