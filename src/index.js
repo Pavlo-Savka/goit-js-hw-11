@@ -14,8 +14,7 @@ function handleSubmit(event) {
   event.preventDefault();
   galleryCard.innerHTML = '';
   page = 1;
-  PICTURE.fetchpixabay(searchForm.searchQuery.value, page)
-    .then(renderGallery);
+  PICTURE.fetchpixabay(searchForm.searchQuery.value, page).then(renderGallery);
 }
 
 function renderCard(data) {
@@ -62,8 +61,7 @@ function renderGallery(data) {
     Notify.info(
       'Sorry, there are no images matching your search query. Please try again.'
     );
-  }
-  else renderCard(data);
+  } else renderCard(data);
 }
 
 function loadMoreImg() {
@@ -73,9 +71,9 @@ function loadMoreImg() {
 
 function noMoreImg() {
   console.log(total);
-  if (page * 40 < total)
-    loadMoreBtn.style.display = 'block'
-    else { loadMoreBtn.style.display = 'none';
+  if (page * 40 < total) loadMoreBtn.style.display = 'block';
+  else {
+    loadMoreBtn.style.display = 'none';
     if (page > 1)
       Notify.info("We're sorry, but you've reached the end of search results.");
   }
