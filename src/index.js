@@ -9,6 +9,7 @@ let total = 0;
 
 searchForm.addEventListener('submit', handleSubmit);
 loadMoreBtn.addEventListener('click', loadMoreImg);
+loadMoreBtn.addEventListener('click', scroll);
 
 function handleSubmit(event) {
   event.preventDefault();
@@ -31,7 +32,7 @@ function renderCard(data) {
     .map(element => {
       return `
       <div class="photo-card">
-      <a href = "${element.largeImageURL}" target="_blank">
+      <a href = "${element.largeImageURL}" target="_blank">     
       <div class = "photo-card-wrapper">
       <img class="photo-card-img" src="${element.webformatURL}" alt="${element.tags}" loading="lazy" />
       </div>
@@ -54,7 +55,8 @@ function renderCard(data) {
           <span>${element.downloads}</span>
         </p>
       </div>
-    </div>`;
+    </div>
+         `;
     })
     .join('');
   galleryCard.insertAdjacentHTML('beforeend', markup);
@@ -88,4 +90,16 @@ function noMoreImg() {
       Notify.info("We're sorry, but you've reached the end of search results.");
     }
   }
+};
+ 
+  function scroll() {
+    const { height: cardHeight } = document
+      .querySelector('.gallery')
+      .firstElementChild.getBoundingClientRect();
+    setTimeout(() => {
+      window.scrollBy({
+        top: cardHeight * 3 - 20,
+        behavior: 'smooth',
+      });
+    }, 500); 
 }
